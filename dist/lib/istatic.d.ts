@@ -9,5 +9,4 @@ export interface IStatic {
     isUniqueTransaction(is_unique_transaction: boolean): IStatic;
     getBRCode(): string;
     getQRCode(): Promise<string | null>;
-    saveQRCodeFile(path: string): Promise<any>;
 }

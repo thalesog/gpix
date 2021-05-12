@@ -29,16 +29,3 @@ let dpix = PIX.dinamic()
     .setAmount(10.4) // some PSP are not recovering the amount through the charge. Then temporarily enter the amount to avoid problems.
 
 console.log('\nBRCODE dinamic - GPIX >>>>\n', dpix.getBRCode());
-
-// Saving QRCode to physical file
-// Salvando QRCode em arquivo físico
-(async () => {
-
-    pix.setDescription('Free Donation / QRCODE - GPIX') // optional
-
-    if(await pix.saveQRCodeFile('./qrcode.png')) {
-        console.log('success in saving static QR-code')
-    } else {
-        console.log('error saving QR-code')
-    }
-})();

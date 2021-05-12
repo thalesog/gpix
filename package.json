@@ -2,7 +2,7 @@
   "name": "gpix",
   "version": "1.1.6",
   "description": "Library written in nodejs to generate PIX br-code and qr-code.",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "build": "tsc",
     "test": "tsc && mocha --reporter spec"

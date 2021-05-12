@@ -39,7 +39,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PIX = void 0;
 var crc_1 = require("./crc/crc");
 var qrcode = require("qrcode");
-var fs = require("fs");
 var PIX = /** @class */ (function () {
     function PIX() {
         this._is_unique_transaction = false;
@@ -114,7 +113,7 @@ var PIX = /** @class */ (function () {
         lines.push(this._getEMV('00', '01'));
         // Is Unique Transaction?
         lines.push(this._getEMV('01', this._is_unique_transaction ? '12' : '11'));
-        // Merchant Account Information - Pix	
+        // Merchant Account Information - Pix
         if (!this._key && !this._location) {
             throw 'É necessário informar uma URL ou então uma chave pix.';
         }
@@ -160,35 +159,6 @@ var PIX = /** @class */ (function () {
                         e_1 = _a.sent();
                         return [2 /*return*/, null];
                     case 3: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    PIX.prototype.saveQRCodeFile = function (out) {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, new Promise(function (res, rej) { return __awaiter(_this, void 0, void 0, function () {
-                            var base64;
-                            return __generator(this, function (_a) {
-                                switch (_a.label) {
-                                    case 0: return [4 /*yield*/, this.getQRCode()];
-                                    case 1:
-                                        base64 = _a.sent();
-                                        if (base64 == null)
-                                            return [2 /*return*/, rej(null)];
-                                        fs.writeFile(out, base64.replace(/^data:image\/png;base64,/, ""), 'base64', function (err) {
-                                            if (err)
-                                                rej(null);
-                                            else
-                                                res(true);
-                                        });
-                                        return [2 /*return*/];
-                                }
-                            });
-                        }); })];
-                    case 1: return [2 /*return*/, _a.sent()];
                 }
             });
         });

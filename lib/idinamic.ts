@@ -9,8 +9,7 @@ export interface IDinamic {
     setAmount(amount: number): IDinamic;
 
     setLocation(location: string): IDinamic;
-    
+
     getBRCode(): string;
     getQRCode(): Promise<string | null>;
-    saveQRCodeFile(path: string): Promise<any>;
 }

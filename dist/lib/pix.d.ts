@@ -24,7 +24,6 @@ export declare class PIX implements IDinamic, IStatic {
     isUniqueTransaction(is_unique_transaction: boolean): this;
     getBRCode(): string;
     getQRCode(): Promise<string | null>;
-    saveQRCodeFile(out: string): Promise<unknown>;
     private _normalizeText;
     private _generateAccountInformation;
     private _additionalDataField;

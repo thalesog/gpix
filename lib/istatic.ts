@@ -11,6 +11,5 @@ export interface IStatic {
 
     getBRCode(): string;
     getQRCode(): Promise<string | null>;
-    saveQRCodeFile(path: string): Promise<any>;
 
 }

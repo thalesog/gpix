@@ -2,7 +2,6 @@ import { CRC } from "./crc/crc";
 import { IDinamic } from "./idinamic";
 import { IStatic } from "./istatic";
 import * as qrcode from "qrcode";
-import * as fs from "fs";
 
 export class PIX implements IDinamic, IStatic {
 
@@ -104,7 +103,7 @@ export class PIX implements IDinamic, IStatic {
         // Is Unique Transaction?
         lines.push(this._getEMV('01', this._is_unique_transaction ? '12' : '11'))
 
-        // Merchant Account Information - Pix	
+        // Merchant Account Information - Pix
         if (!this._key && !this._location) {
             throw 'É necessário informar uma URL ou então uma chave pix.'
         }
@@ -154,21 +153,6 @@ export class PIX implements IDinamic, IStatic {
         } catch (e) {
             return null
         }
-    }
-
-    async saveQRCodeFile(out: string) {
-        return await new Promise(async (res, rej) => {
-
-            let base64 = await this.getQRCode()
-            if (base64 == null)
-                return rej(null);
-
-            fs.writeFile(out, base64.replace(/^data:image\/png;base64,/, ""), 'base64', function (err) {
-                if (err) rej(null)
-                else res(true)
-            })
-
-        })
     }
 
 
